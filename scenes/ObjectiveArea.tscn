@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/ObjectiveArea.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 148.25, 241 )
+
+[node name="ObjectiveArea" type="Area2D"]
+script = ExtResource( 3 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( 1, -1 )
+shape = SubResource( 21 )
+
+[connection signal="body_entered" from="." to="." method="_on_ObjectiveArea_body_entered"]

@@ -1,11 +1,238 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_grass.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ObjectiveArea.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Familiar Looking Rocket.png" type="Texture" id=4]
+[ext_resource path="res://scenes/Spawner.gd" type="Script" id=5]
+[ext_resource path="res://scenes/FallingFish.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 128, 128, 1, 128, 1, 3.33331, 128, 3.33331 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 128, 128, 0.499969, 128, 0.499969, 1.66663, 128, 1.66663 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 128, 72.8333, 0.166656, 72.8333, 0.166656, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 128, 72.8333, 2.16666, 72.8333, 2.16666, 2, 128, 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 126.667, 74.5, 0, 74.5, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+points = PoolVector2Array( 128, 72.8333, 0, 72.8333, 0, 2, 128, 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 128, 128, 0.833344, 128, 0.833344, 0.833313, 128, 0.833313 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 125.333, 3.33331, 125.333, 85.8333, 124.5, 126.667, 122, 126.667, 72, 116.667, 24.5, 93.3333, 1.16666, 43.3333, 1.16666, 40, 2.83334, 5, 7.83334, 3.33331 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 126.5, 2.5, 128, 44.1666, 124, 70, 103.167, 97.5, 67.3334, 115.833, 32.3334, 126.667, 0, 128, 4, 4.16663, 4, 3.33331 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 123.667, 128, 0.333435, 124.5, 1.16675, 2.83331 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+points = PoolVector2Array( 128, 128, 2.33344, 124.5, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 124.833, 0, 125.667, 127.5, 0, 42.5, 4.83344, 4.16663, 10.6667, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=36]
+points = PoolVector2Array( 124.333, 0, 125.167, 44.1666, 1.00006, 124.167, 2.66675, 0.833313 )
+
+[sub_resource type="ConvexPolygonShape2D" id=37]
+points = PoolVector2Array( 128, 128, 2.66675, 128, 2.66675, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=38]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 2, 128, 2 )
+
+[sub_resource type="ConvexPolygonShape2D" id=39]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=40]
+points = PoolVector2Array( 128, 128, 0, 127, 0, 0.333313, 128, 0.333313 )
+
+[sub_resource type="TileSet" id=21]
+0/name = "Grass"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( -1, 0, 1154, 259 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 128, 128 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 23 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 8, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 29 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 34 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 36 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 37 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 38 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 39 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 40 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
 
 [node name="Level1" type="Node2D"]
+
+[node name="ObjectiveArea" parent="." instance=ExtResource( 3 )]
+position = Vector2( 577, 837 )
+scale = Vector2( 200, 1 )
+stringOutput = "You fell + L + Ratio"
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 144, 52 )
 collision_layer = 3
 collision_mask = 3
 speed = 300
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+current = true
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2( 0.5, 0.5 )
+tile_set = SubResource( 21 )
+format = 1
+tile_data = PoolIntArray( -1114035, 0, 65542, -982963, 0, 65542, -851891, 0, 65542, -720819, 0, 65542, -589747, 0, 65542, -393227, 0, 65544, -458675, 0, 65542, -262155, 0, 65544, -327603, 0, 65542, -262078, 0, 131075, -131083, 0, 65544, -196531, 0, 65542, -11, 0, 65544, -65477, 0, 65536, -65475, 0, 65536, -65473, 0, 65542, -65471, 0, 65542, -65469, 0, 65542, -65467, 0, 65542, -65465, 0, 65542, -65463, 0, 65542, -65461, 0, 65542, -65459, 0, 65542, 54, 0, 131072, 57, 0, 131072, 131061, 0, 65544, 65588, 0, 65536, 65589, 0, 131072, 65590, 0, 131072, 65591, 0, 65536, 65593, 0, 131072, 65599, 0, 65542, 131125, 0, 131072, 131126, 0, 131072, 262133, 0, 0, 262135, 0, 0, 262137, 0, 0, 262139, 0, 0, 262141, 0, 0, 262143, 0, 0, 196609, 0, 0, 196611, 0, 0, 196613, 0, 0, 196615, 0, 0, 196617, 0, 0, 196619, 0, 0, 196621, 0, 0, 196623, 0, 0, 196625, 0, 0, 196627, 0, 65540, 196658, 0, 65536, 196671, 0, 65542, 327699, 0, 9, 327701, 0, 65540, 327728, 0, 65536, 327743, 0, 65542, 458773, 0, 9, 458775, 0, 65540, 458798, 0, 65536, 458815, 0, 65542, 589847, 0, 9, 589849, 0, 65540, 589864, 0, 65536, 589866, 0, 131072, 589867, 0, 131072, 589868, 0, 131072, 589887, 0, 65542, 655404, 0, 131072, 655405, 0, 131072, 720921, 0, 9, 720923, 0, 65540, 720933, 0, 65536, 720959, 0, 65542, 851995, 0, 9, 851997, 0, 65540, 852002, 0, 65536, 852031, 0, 65542, 983071, 0, 65542, 983073, 0, 65542, 983075, 0, 65542, 983077, 0, 65542, 983079, 0, 65542, 983081, 0, 65542, 983083, 0, 131072, 983085, 0, 131072, 983087, 0, 65542, 983089, 0, 65542, 983091, 0, 65542, 983093, 0, 65542, 983095, 0, 65542, 983097, 0, 65542, 983099, 0, 65542, 983101, 0, 65542, 983103, 0, 65542, 1048621, 0, 131072 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 2269, -279 )
+texture = ExtResource( 4 )
+
+[node name="ObjectiveArea" parent="Sprite" instance=ExtResource( 3 )]
+position = Vector2( -11, 0 )
+sceneName = "Level2"
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2( 1401, -98 )
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 5 )
+obstacle = ExtResource( 6 )
+spawnTimeMin = 1.0
+spawnTimeMax = 3.0
+
+[node name="Spawner2" type="Node2D" parent="."]
+position = Vector2( 1859, 244 )
+scale = Vector2( 0.25, 0.25 )
+script = ExtResource( 5 )
+obstacle = ExtResource( 6 )
